@@ -376,17 +376,26 @@ async function showPlaceResult(
     `;
         data.recommendations.forEach(item => {
 
-            html += `
-                <div class="result-card">
+    html += `
+        <div class="result-card">
 
             <h4>${item.name}</h4>
 
             <p>${item.reason}</p>
 
-                </div>
-            `;
+            <button
+                onclick="addFavorite(
+                    '${item.name}',
+                    '${item.reason}'
+                )"
+            >
+                ❤️ 收藏
+            </button>
 
-        });
+        </div>
+    `;
+
+});
 
     const messageResponse =
     await fetch(
